@@ -1,0 +1,28 @@
+<mat-card class="m-3">
+    <mat-card-header>
+        <mat-card-title mat-h1>Country</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+<mat-form-field>
+    <mat-label>Select an option</mat-label>
+    <mat-select [(value)]="selected">
+        <mat-option>None</mat-option>
+        <mat-option value="Karnataka">Karnataka</mat-option>
+        <mat-option value="Mumbai">Mumbai</mat-option>
+        <mat-option value="Delhi">Delhi</mat-option>
+    </mat-select>
+</mat-form-field>
+
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title >{{selected}} </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary">More Deatails</button>
+            <button mat-raised-button color="primary">Add More</button>
+        </mat-card-actions>
+    </mat-card>
+    </mat-card-content>
+</mat-card>

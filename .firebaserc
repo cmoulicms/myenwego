@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "myenwego"
+  },
+  "targets": {
+    "myenwego": {
+      "hosting": {
+        "myenwego": [
+          "myenwego"
+        ]
+      }
+    }
+  }
+}

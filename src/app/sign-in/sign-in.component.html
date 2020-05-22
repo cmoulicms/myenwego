@@ -1,0 +1,25 @@
+<form #form="ngForm">
+  <div class="example-container">
+    <h2 class="mat-h1">Admin Login</h2>
+    <mat-form-field appearance="fill">
+      <mat-label>username</mat-label>
+      <input matInput type="text" name="username" ngModel>
+    </mat-form-field>
+    <br><br>
+    <mat-form-field appearance="fill">
+      <mat-label>email</mat-label>
+      <input matInput type="email" name="email" ngModel>
+    </mat-form-field>
+    <br><br>
+    <mat-form-field appearance="fill">
+      <mat-label>password</mat-label>
+      <input matInput type="text" name="password" ngModel>
+    </mat-form-field>
+
+    <br><br>
+    <button mat-raised-button class="mx-2" color="primary">submit</button>
+    <button mat-raised-button mat-dialog-close class="mx-2" color="primary">cancle</button>
+    
+  </div>
+</form><br>
+<button (click)="login()" class="btn btn-primary">Login with Google</button>

@@ -1,0 +1,53 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar class="mat-h1">Menu</mat-toolbar>
+    <mat-nav-list class="mat-h2">
+      <a mat-list-item routerLinkActive="active" routerLink="tour-operators">Manage Operators</a>
+      <a mat-list-item  routerLinkActive="active" routerLink="tour-available">Manage Tours</a>
+      <a mat-list-item routerLinkActive="active" routerLink="tour-price">Price</a>
+      <a mat-list-item routerLinkActive="active" routerLink="tour-country">Country</a>
+      <a mat-list-item routerLink="#">Departure Date</a>
+      <a mat-list-item routerLink="#">Tour Type</a>
+    </mat-nav-list>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>myenwego</span>
+      <span class="example-fill-remaining-space"></span>
+
+      <!-- <button class="mx-1" mat-raised-button  (click)="openDialog()">Sign In</button> -->
+      <!-- <button class="mx-1" mat-raised-button routerLink='/sign-in'>Login</button>
+      <button class="mx-1" mat-raised-button (click)="logout() " >Log Out</button> -->
+      <ng-template #anonymousUser>
+        <li  class="nav-item">
+          <button mat-raised-button><a class="nav-link" routerLink="/sign-in">Login</a></button>
+        </li>
+      </ng-template>
+
+      <li *ngIf="user$ | async as user; else anonymousUser">
+        <button mat-button [matMenuTriggerFor]="menu">{{ user.displayName | uppercase }}</button>
+        <mat-menu #menu="matMenu" xPosition="before">
+        <button mat-menu-item routerLink="/tour-operators">Manage Operators</button>
+        <button mat-menu-item routerLink="/tour-available">Manage Tours</button>
+        <button mat-menu-item (click)="logout()">Log Out</button>
+        </mat-menu>
+      </li>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
