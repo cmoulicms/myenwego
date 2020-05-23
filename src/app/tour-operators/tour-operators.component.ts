@@ -37,7 +37,6 @@ export class TourOperatorsComponent implements OnInit {
     db.list('/operators').snapshotChanges()
     .subscribe( operators => {
       this.operators = operators;
-      console.log(this.operators);
     });
    }
 }

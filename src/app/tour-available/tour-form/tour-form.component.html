@@ -1,29 +1,46 @@
-<form>
-    <div class="example-form">
-        <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Tour Title</mat-label>
-            <input matInput>
-        </mat-form-field>
-        <br>
-        <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Tour Type</mat-label>
-            <input matInput>
-        </mat-form-field>
-        <br>
-        <mat-form-field class="example-full-width">
-            <mat-label>Opearted by</mat-label>
-            <mat-select>
-                <mat-option value=""></mat-option>
-                <mat-option *ngFor="let o of operators$ | async" [value]="o.key">
-                    {{ o.name }}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-        <br>
-        <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>Tour Type</mat-label>
-            <input matInput>
-        </mat-form-field>
-        <button mat-raised-button color="primary">Save</button>
+<div class="row">
+    <div class="col-md-6">
+        <form #f="ngForm" (ngSubmit)="save(f.value)">
+            <div class="example-form">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Tour Title</mat-label>
+                    <input #title="ngModel" [(ngModel)]="tour.title" name="title" matInput>
+                </mat-form-field>
+                <br>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Tour Type</mat-label>
+                    <input #type="ngModel" [(ngModel)]="tour.type" name="type" matInput>
+                </mat-form-field>
+                <br>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Opearted by</mat-label>
+                    <mat-select>
+                        <mat-option value=""></mat-option>
+                        <mat-option *ngFor="let o of operators$ | async" [value]="o.key">
+                            {{ o.payload.val().name }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <br>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Tour Cost</mat-label>
+                    <input #cost="ngModel" [(ngModel)]="tour.cost" name="cost" matInput>
+                </mat-form-field>
+                <br>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Tour ImageUrl</mat-label>
+                    <input #imageUrl="ngModel" [(ngModel)]="tour.imageUrl" name="imageUrl" matInput>
+                </mat-form-field>
+                <button mat-raised-button color="primary">Save</button>
+                <button (click)="delete()" mat-raised-button color="warn">Delete</button>
+            </div>
+        </form>
     </div>
-</form>
+    <div class="col-md-6">
+        <mat-card class="example-card">
+            <img mat-card-image *ngIf="tour.imageUrl" [src]="tour.imageUrl">
+            <mat-card-title>{{ tour.title }}</mat-card-title>
+            <mat-card-content></mat-card-content>
+        </mat-card>
+    </div>
+</div>

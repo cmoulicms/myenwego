@@ -1,1 +1,47 @@
-<a routerLink="/tour-available/tours/new" mat-raised-button>New Tour</a>
+<p>
+    <a routerLink="/tour-available/tours/new" mat-raised-button>New Tour</a>
+</p>
+
+<mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium">
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="tours" matSort>
+    
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> TourName </th>
+        <td mat-cell *matCellDef="let element"> {{element.payload.val().title}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> TourType </th>
+        <td mat-cell *matCellDef="let element"> {{element.payload.val().type}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> OperatedBy </th>
+        <td mat-cell *matCellDef="let element"> {{element.payload.val().operator}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Cost </th>
+        <td mat-cell *matCellDef="let element"> {{element.payload.val().cost}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="imageUrl">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ImageUrl </th>
+        <td mat-cell *matCellDef="let element"> {{element.payload.val().imageUrl}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action</th>
+        <td mat-cell *matCellDef="let element"><button [routerLink]="['/tour-operators/operators/', element.key]" mat-raised-button color="primary">Edit</button></td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator  [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>

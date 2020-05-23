@@ -28,6 +28,7 @@ import { AdminAuthGuardService } from './admin-auth-guard.service';
 import { TourFormComponent } from './tour-available/tour-form/tour-form.component';
 import { OperatorService } from './operator.service';
 import { OperatorFormComponent } from './tour-operators/operator-form/operator-form.component';
+import { TourService } from './tour.service';
 
 
 
@@ -68,7 +69,8 @@ import { OperatorFormComponent } from './tour-operators/operator-form/operator-f
     AuthGuardService,
     UserService,
     AdminAuthGuardService,
-    OperatorService
+    OperatorService,
+    TourService
   ],
   bootstrap: [AppComponent]
 })
