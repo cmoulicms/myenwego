@@ -17,6 +17,7 @@ export class TourOperatorsComponent implements OnInit {
   displayedColumns: string[] = ['name', 'description','imageUrl', 'action'];
   dataSource = new MatTableDataSource<AppOperator>(this.operators);
 
+  
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();

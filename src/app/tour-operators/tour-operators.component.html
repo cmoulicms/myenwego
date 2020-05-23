@@ -12,18 +12,18 @@
 
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> OperatorName </th>
-    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.payload.val().name}} </td>
   </ng-container>
 
   
   <ng-container matColumnDef="description">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
-    <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.payload.val().description}} </td>
   </ng-container>
 
   <ng-container matColumnDef="imageUrl">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> ImageUrl </th>
-    <td mat-cell *matCellDef="let element"> {{element.imageUrl}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.payload.val().imageUrl}} </td>
   </ng-container>
 
   <ng-container matColumnDef="action">
