@@ -14,7 +14,7 @@
                 <br>
                 <mat-form-field class="example-full-width">
                     <mat-label>Opearted by</mat-label>
-                    <mat-select>
+                    <mat-select #operator="ngModel" [(ngModel)]="tour.operator" name="operator">
                         <mat-option value=""></mat-option>
                         <mat-option *ngFor="let o of operators$ | async" [value]="o.key">
                             {{ o.payload.val().name }}
@@ -24,7 +24,7 @@
                 <br>
                 <mat-form-field class="example-full-width" appearance="outline">
                     <mat-label>Tour Cost</mat-label>
-                    <input #cost="ngModel" [(ngModel)]="tour.cost" name="cost" matInput>
+                    <input type="number" #cost="ngModel" [(ngModel)]="tour.cost" name="cost" matInput>
                 </mat-form-field>
                 <br>
                 <mat-form-field class="example-full-width" appearance="outline">

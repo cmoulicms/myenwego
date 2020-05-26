@@ -10,22 +10,22 @@
 <div class="mat-elevation-z8">
     <table mat-table [dataSource]="tours" matSort>
     
-      <ng-container matColumnDef="name">
+      <ng-container matColumnDef="title">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> TourName </th>
         <td mat-cell *matCellDef="let element"> {{element.payload.val().title}} </td>
       </ng-container>
 
-      <ng-container matColumnDef="description">
+      <ng-container matColumnDef="type">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> TourType </th>
         <td mat-cell *matCellDef="let element"> {{element.payload.val().type}} </td>
       </ng-container>
 
-      <ng-container matColumnDef="description">
+      <ng-container matColumnDef="operatedBy">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> OperatedBy </th>
-        <td mat-cell *matCellDef="let element"> {{element.payload.val().operator}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.operatedBy}} </td>
       </ng-container>
 
-      <ng-container matColumnDef="description">
+      <ng-container matColumnDef="cost">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Cost </th>
         <td mat-cell *matCellDef="let element"> {{element.payload.val().cost}} </td>
       </ng-container>
@@ -37,7 +37,7 @@
     
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef> Action</th>
-        <td mat-cell *matCellDef="let element"><button [routerLink]="['/tour-operators/operators/', element.key]" mat-raised-button color="primary">Edit</button></td>
+        <td mat-cell *matCellDef="let element"><button [routerLink]="['/tour-available/tours/', element.key]" mat-raised-button color="primary">Edit</button></td>
       </ng-container>
     
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

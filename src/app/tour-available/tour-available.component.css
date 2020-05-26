@@ -1,2 +1,15 @@
-
+.example-card {
+    width: 200px;
+    height: auto;
+  }
+  
+  mat-grid-list {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  table {
+    width: 100%;
+  }
+  
 

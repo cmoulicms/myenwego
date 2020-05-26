@@ -32,13 +32,18 @@ const routes: Routes = [
     canActivate: [AuthGuardService]
   },
   {
-    path: 'tour-available',
-    component: TourAvailableComponent,
+    path: 'tour-available/tours/new',
+    component: TourFormComponent,
     canActivate: [AuthGuardService]
   },
   {
-    path: 'tour-available/tours/new',
+    path: 'tour-available/tours/:id',
     component: TourFormComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'tour-available',
+    component: TourAvailableComponent,
     canActivate: [AuthGuardService]
   },
   {

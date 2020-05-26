@@ -18,14 +18,15 @@ export class TourFormComponent implements OnInit {
     private tourService: TourService) 
     { 
 
-      this.operators$ = tourService.getOperators();
+      this.operators$ = tourService.getOperators().snapshotChanges();
 
       this.id = this.activatedRoute.snapshot.paramMap.get('id');
+
       if (this.id) this.tourService.get(this.id).valueChanges().pipe(take(1)).subscribe(t => this.tour = t);
   }
 
   save(tour) {
-
+  
     if (this.id) this.tourService.update(this.id, tour);
 
     else this.tourService.create(tour);
@@ -37,6 +38,7 @@ export class TourFormComponent implements OnInit {
     if(!confirm('Are you sure you want to delete this tour')) return;
 
     this.tourService.delete(this.id);
+
     this.router.navigate(['/tour-available']);
   }
 

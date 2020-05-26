@@ -4,6 +4,7 @@ import { AppTour } from './tour/app-tour';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
+import { TourService } from '../tour.service';
 
 @Component({
   selector: 'app-tour-available',
@@ -27,10 +28,11 @@ export class TourAvailableComponent implements OnInit {
 
 
   constructor(private db: AngularFireDatabase) {
+
     db.list('/tours').snapshotChanges()
     .subscribe( tours => {
       this.tours = tours;
-    })
+    });
    }
 
   ngOnInit(){
